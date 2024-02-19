@@ -1,6 +1,6 @@
 # Status
 
-Works. (On Teensy only !?)
+Works. (On Teensy only ?)
 
 | This was 3 days of brainfuug, feel free motivating me publishing such stuff. | <a href="https://www.buymeacoffee.com/mariosgeu" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="32" width="128"></a> |
 |---|---|

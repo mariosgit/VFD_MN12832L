@@ -76,11 +76,9 @@ It does something, that's cygling through the 44 gates using the last 6 bytes of
     * Start timer to get these 5 impulses out ??? 
     * And why 6 pulses ? 
     * Add 6 pulses during shifting... no timer ?
-  * New idea,
-    * This just toggles through the 6 pixels.
-    * Because there are 2 gates for 6 pixels, only one column can be on during one gate cycle.
-    * if not cygled or with inconsistant timing this will should lead to different brightness per column !?
-    * Then the 8 grey levels just come from the fastness, you can baller through 3 subframes per frame if needed.
+  * seems this determines the time for a bitmap when doing grey scales.
+    * just added some toggles of this during the refresh
+    * I gues this should have different time interval between each toggle.
 
 * Mystery 3:
   * Ahh the bits are swapped around afbecd... so mem layout is???  bits: 162534, mhm have to write each pixel alone anyway.
