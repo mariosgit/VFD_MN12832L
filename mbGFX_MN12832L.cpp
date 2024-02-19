@@ -66,6 +66,8 @@ void MN12832L::drawPixel(int16_t px, int16_t py, uint16_t color)
 {
     if ((px < 0) || (py < 0) || (px >= _width) || (py >= _height))
         return;
+    if(color > 3)
+        return;
 
     // mem coordinates, allways 3 bytes = 4 lines = 24 pixel in one block
     register uint8_t gate = px / 6 + 1;
@@ -81,8 +83,6 @@ void MN12832L::drawPixel(int16_t px, int16_t py, uint16_t color)
     else if (pixl == 3) pixp.u32 = B000001; // d
     else if (pixl == 4) pixp.u32 = B000100; // e
     else if (pixl == 5) pixp.u32 = B010000; // f
-
-
 
     // write pixel 6packs 111111xx xxxxxxxx xxxxxxxx
     if (yoff == 0)
@@ -121,7 +121,18 @@ void MN12832L::drawPixel(int16_t px, int16_t py, uint16_t color)
 
 void MN12832L::fillScreen(uint8_t color)
 {
-    memset(buffer+bufferOffset, color, bufferSize*2);
+    memset(buffer+bufferOffset, 0x00, bufferSize*2);
+    if(color > 3) return;
+    if(color&1)
+    {
+        uint8_t *dst = buffer + bufferOffset;
+        memset(dst, 0xff, bufferSize);
+    }
+    if(color & 2)
+    {
+        uint8_t *dst = buffer + bufferOffset + bufferSize;
+        memset(dst, 0xff, bufferSize);
+    }
 
     // byte tempBuffer[24] = {
     //     B10000010, B00001000, B00100000, // 4 rows | a
