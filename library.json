@@ -1,0 +1,22 @@
+{
+    "name": "VFD-MN12832L",
+    "version": "1.0.0",
+    "keywords": "display, VFD",
+    "description": "AdafruitGFX style library to handle 128x32 pixel VFD display",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mariosgit/VFD_MN12832L.git"
+    },
+    "frameworks": "Arduino",
+    "platforms": "teensy",
+    "examples": [
+        "[Ee]xamples/*.ino"
+    ],
+    "authors": [
+        {
+            "name": "Mario Becker",
+            "url": "https://github.com/mariosgit"
+        }
+    ],
+    "license": "MIT"
+}
