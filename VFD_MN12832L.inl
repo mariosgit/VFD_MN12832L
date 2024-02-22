@@ -52,7 +52,11 @@ void MN12832Lgeneric<BitDepth>::begin()
     digitalWrite(pinGCP, LOW);
 
     SPI.setMOSI(MOSI_PIN);
+#ifdef ARDUINO_ARCH_STM32 // aaahhhh :(
+    SPI.setSCLK(SCK_PIN);
+#else
     SPI.setSCK(SCK_PIN);
+#endif
     SPI.begin();
 
     pinMode(pinPWM, OUTPUT);

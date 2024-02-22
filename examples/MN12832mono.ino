@@ -1,7 +1,14 @@
 #include <Arduino.h>
 #include <VFD_MN12832L.h>
-#include <elapsedMillis.h>
 #include <mbLog.h>
+#include <elapsedMillis.h>
+
+// Create an IntervalTimer object
+#ifdef ARDUINO_ARCH_STM32
+HardwareTimer timer(TIM3);
+#else // teensy ??
+IntervalTimer timer;
+#endif
 
 MN12832Lmono display( 
 /* pinBLK = */ 4,
@@ -17,8 +24,6 @@ uint32_t frameCounter = 0;
 uint32_t drawtime = 0;
 int16_t textPos = 128;
 
-// Create an IntervalTimer object
-IntervalTimer myTimer;
 
 void setup()
 {
@@ -26,7 +31,12 @@ void setup()
     randomSeed(analogRead(0));
 
     // You need to trigger the refresh function regularly !
-    myTimer.begin(display.refresh, 1000000 / display.targetFps); // starting slowly
+#ifdef ARDUINO_ARCH_STM32
+    timer.setOverflow(1000000 / display.targetFps, MICROSEC_FORMAT);
+    timer.attachInterrupt([](HardwareTimer *timer) { display.refresh(); });
+#else
+    timer.begin(display.refresh, 1000000 / display.targetFps); // starting slowly
+#endif
 }
 
 void loop()
