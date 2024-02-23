@@ -72,7 +72,7 @@ void loop()
         display.setTextColor(1);
         display.setTextWrap(false);
         display.print("subermajo");
-        display.print(" :-P");
+        display.print(MYEMOJI); // defined in .env
 
         textPos -= 3;
         if(textPos < -120) textPos = 128;
