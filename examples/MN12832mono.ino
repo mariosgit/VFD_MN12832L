@@ -24,6 +24,9 @@ uint32_t frameCounter = 0;
 uint32_t drawtime = 0;
 int16_t textPos = 128;
 
+#ifndef MYEMOJI // build system experiment.. ignore
+#define MYEMOJI ":)"
+#endif
 
 void setup()
 {
@@ -71,7 +74,7 @@ void loop()
         display.setCursor(textPos,0);
         display.setTextColor(1);
         display.setTextWrap(false);
-        display.print("subermajo");
+        display.print("subermajo ");
         display.print(MYEMOJI); // defined in .env
 
         textPos -= 3;
