@@ -30,7 +30,7 @@ MN12832Lgeneric<BitDepth>::MN12832Lgeneric(
                    MOSI_PIN(MOSI_PIN),
                    SCK_PIN(SCK_PIN),
                    pinPWM(pinPWM),
-                   spiSettings(16000000, MSBFIRST, SPI_MODE0)
+                   spiSettings(8000000, MSBFIRST, SPI_MODE0)
 {
     _the = this;
 }

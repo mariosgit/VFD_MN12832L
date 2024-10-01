@@ -3,12 +3,12 @@
 #include <mbLog.h>
 
 MN12832Lgrey display( 
-/* pinBLK = */ 4,
-/* pinLAT = */ 6,
-/* pinGCP = */ 3,
+/* pinBLK = */ 0,
+/* pinLAT = */ 1,
+/* pinGCP = */ 2,
 /* MOSI_PIN = */ 11,
 /* SCK_PIN = */ 13,
-/* pinPWM = */ 20);
+/* pinPWM = */ 6);
 
 elapsedMillis checker = 0;
 elapsedMillis logger = 0;
