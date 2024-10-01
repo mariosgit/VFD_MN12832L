@@ -43,8 +43,6 @@ protected:
     ///   front | back
     ///   0 | 1 | 0 | 1 //bitplanes
 
-    SPISettings spiSettings;
-
     uint8_t buffer[bufferSize*2*BitDepth];
     uint16_t bufferOffset = 0;
     uint8_t tempBuffer[30];
@@ -76,7 +74,10 @@ protected:
     const byte pinGCP;
     const byte MOSI_PIN;
     const byte SCK_PIN;
-    const byte pinPWM;    
+    const byte pinPWM;
+
+    SPISettings spiSettings;
+
     static MN12832Lgeneric *_the;
 };
 
