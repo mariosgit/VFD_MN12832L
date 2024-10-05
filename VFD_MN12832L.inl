@@ -20,8 +20,7 @@ MN12832Lgeneric<BitDepth>::MN12832Lgeneric(
     byte pinLAT,
     byte pinGCP,
     byte MOSI_PIN,
-    byte SCK_PIN,
-    byte pinPWM) : Adafruit_GFX(128, 32),
+    byte SCK_PIN) : Adafruit_GFX(128, 32),
                    gate(50),
                    displayTime(0),
                    pinBLK(pinBLK),
@@ -29,8 +28,7 @@ MN12832Lgeneric<BitDepth>::MN12832Lgeneric(
                    pinGCP(pinGCP),
                    MOSI_PIN(MOSI_PIN),
                    SCK_PIN(SCK_PIN),
-                   pinPWM(pinPWM),
-                   spiSettings(8000000, MSBFIRST, SPI_MODE0) // clk 400ns min = 2.5MHz?
+                   spiSettings(16000000, MSBFIRST, SPI_MODE0) // clk 400ns min = 2.5MHz? seems to work with 16MHz
 {
     _the = this;
 }
@@ -58,9 +56,6 @@ void MN12832Lgeneric<BitDepth>::begin()
     SPI.setSCK(SCK_PIN);
 #endif
     SPI.begin();
-
-    pinMode(pinPWM, OUTPUT);
-    analogWrite(pinPWM, 128); // 50% duty
 
     // display needs to cygle all the time !
     // myTimer.begin(refresh, 1000000 / targetFps); // starting slowly

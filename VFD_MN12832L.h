@@ -18,8 +18,7 @@ public:
         byte pinLAT = 6,
         byte pinGCP = 3,
         byte MOSI_PIN = 11,
-        byte SCK_PIN = 13,
-        byte pinPWM = 20);
+        byte SCK_PIN = 13);
     ~MN12832Lgeneric(void);
     void begin();
 
@@ -74,7 +73,6 @@ protected:
     const byte pinGCP;
     const byte MOSI_PIN;
     const byte SCK_PIN;
-    const byte pinPWM;
 
     SPISettings spiSettings;
 
@@ -95,8 +93,7 @@ public:
         byte pinLAT = 6,
         byte pinGCP = 3,
         byte MOSI_PIN = 11,
-        byte SCK_PIN = 13,
-        byte pinPWM = 20);
+        byte SCK_PIN = 13);
 };
 
 /**
@@ -113,8 +110,7 @@ public:
         byte pinLAT = 6,
         byte pinGCP = 3,
         byte MOSI_PIN = 11,
-        byte SCK_PIN = 13,
-        byte pinPWM = 20);
+        byte SCK_PIN = 13);
 };
 
 #include "VFD_MN12832L.inl"
