@@ -4,6 +4,8 @@
 
 MN12832Lgrey display;
 
+const uint8_t pinPWM = 6; // I use this to modulate the Fillament Voltage !
+
 elapsedMillis checker = 0;
 elapsedMillis logger = 0;
 uint32_t frameCounter = 0;
@@ -20,6 +22,9 @@ void setup()
 
     // You need to trigger the refresh function regularly !
     myTimer.begin(display.refresh, 1000000 / display.targetFps);
+
+    pinMode(pinPWM, OUTPUT);
+    analogWrite(pinPWM, 128);
 }
 
 void loop()

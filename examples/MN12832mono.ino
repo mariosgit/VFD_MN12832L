@@ -15,8 +15,9 @@ MN12832Lmono display(
 /* pinLAT = */ 1,
 /* pinGCP = */ 2,
 /* MOSI_PIN = */ 11,
-/* SCK_PIN = */ 13,
-/* pinPWM = */ 6);
+/* SCK_PIN = */ 13);
+
+const uint8_t pinPWM = 6; // I use this to modulate the Fillament Voltage !
 
 elapsedMillis checker = 0;
 elapsedMillis logger = 0;
@@ -40,6 +41,9 @@ void setup()
 #else
     timer.begin(display.refresh, 1000000 / display.targetFps); // starting slowly
 #endif
+
+    pinMode(pinPWM, OUTPUT);
+    analogWrite(pinPWM, 128);
 }
 
 void loop()
