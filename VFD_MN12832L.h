@@ -32,7 +32,7 @@ public:
     /** must be called from timer or otherwise very regularly ! Go for min 4000 times per sec */
     static void refresh();
 
-    static const int16_t targetFps = 150 * 44; // this is per gate // 
+    static const int16_t targetFps = 75 * 44; // this is per gate // 
 
 protected:
     static void nextGate();
